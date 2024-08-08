@@ -3,3 +3,4 @@ export { default as Header } from '../components/Header.jsx';
 export { default as Categories } from '../components/Categories.jsx';
 export { default as Sort } from '../components/Sort.jsx';
 export { default as PizzaCard } from '../components/PizzaCard.jsx';
+export { default as PizzaLoadingBlock } from '../components/pizzaBlock/LoadingBlock.jsx';

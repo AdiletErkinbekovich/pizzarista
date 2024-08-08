@@ -17,6 +17,7 @@ function PizzaCard({ name, sizes, price, category, rating, imageUrl, types }) {
   return (
     <React.Fragment>
       <div className="pizza-block">
+        
         <div className="pizza-blockTop">
           <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
         </div>
