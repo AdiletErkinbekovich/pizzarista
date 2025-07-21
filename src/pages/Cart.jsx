@@ -10,18 +10,16 @@ function Cart() {
   const dispatch = useDispatch();
   const { totalPrice, totalCount, items } = useSelector(({ cart }) => cart);
 
-  const addedPizzas = Object.keys(items).map((key) => {
-    return items[key].items[0];
-  });
+  const addedPizzas = Object.keys(items).map((key) => items[key].items[0]);
 
   const onClearCart = () => {
-    if (window.confirm('Вы действительно хотите очистить корзину?')) {
+    if (window.confirm('Are you sure you want to clear the cart?')) {
       dispatch(clearCart());
     }
   };
 
   const onRemoveItem = (id) => {
-    if (window.confirm('Вы действительно хотите удалить?')) {
+    if (window.confirm('Are you sure you want to remove this item?')) {
       dispatch(removeCartItem(id));
     }
   };
@@ -35,7 +33,7 @@ function Cart() {
   };
 
   const onClickOrder = () => {
-    console.log('ВАШ ЗАКАЗ', items);
+    console.log('YOUR ORDER', items);
   };
 
   return (
@@ -49,7 +47,8 @@ function Cart() {
                 height="18"
                 viewBox="0 0 18 18"
                 fill="none"
-                xmlns="http://www.w3.org/2000/svg">
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   d="M6.33333 16.3333C7.06971 16.3333 7.66667 15.7364 7.66667 15C7.66667 14.2636 7.06971 13.6667 6.33333 13.6667C5.59695 13.6667 5 14.2636 5 15C5 15.7364 5.59695 16.3333 6.33333 16.3333Z"
                   stroke="white"
@@ -65,14 +64,14 @@ function Cart() {
                   strokeLinejoin="round"
                 />
                 <path
-                  d="M4.78002 4.99999H16.3334L15.2134 10.5933C15.1524 10.9003 14.9854 11.176 14.7417 11.3722C14.4979 11.5684 14.1929 11.6727 13.88 11.6667H6.83335C6.50781 11.6694 6.1925 11.553 5.94689 11.3393C5.70128 11.1256 5.54233 10.8295 5.50002 10.5067L4.48669 2.82666C4.44466 2.50615 4.28764 2.21182 4.04482 1.99844C3.80201 1.78505 3.48994 1.66715 3.16669 1.66666H1.66669"
+                  d="M4.78 5H16.3333L15.2133 10.5933C15.1523 10.9003 14.9853 11.176 14.7416 11.3722C14.4978 11.5684 14.1928 11.6727 13.88 11.6667H6.83333C6.50779 11.6694 6.19248 11.553 5.94687 11.3393C5.70126 11.1256 5.54231 10.8295 5.5 10.5067L4.48667 2.82667C4.44464 2.50615 4.28762 2.21182 4.0448 1.99844C3.80199 1.78506 3.48992 1.66715 3.16667 1.66667H1.66667"
                   stroke="white"
                   strokeWidth="1.8"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
               </svg>
-              Корзина
+              Cart
             </h2>
             <div className="cart__clear">
               <svg
@@ -80,7 +79,8 @@ function Cart() {
                 height="20"
                 viewBox="0 0 20 20"
                 fill="none"
-                xmlns="http://www.w3.org/2000/svg">
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   d="M2.5 5H4.16667H17.5"
                   stroke="#B6B6B6"
@@ -89,35 +89,35 @@ function Cart() {
                   strokeLinejoin="round"
                 />
                 <path
-                  d="M6.66663 5.00001V3.33334C6.66663 2.89131 6.84222 2.46739 7.15478 2.15483C7.46734 1.84227 7.89127 1.66667 8.33329 1.66667H11.6666C12.1087 1.66667 12.5326 1.84227 12.8451 2.15483C13.1577 2.46739 13.3333 2.89131 13.3333 3.33334V5.00001M15.8333 5.00001V16.6667C15.8333 17.1087 15.6577 17.5326 15.3451 17.8452C15.0326 18.1577 14.6087 18.3333 14.1666 18.3333H5.83329C5.39127 18.3333 4.96734 18.1577 4.65478 17.8452C4.34222 17.5326 4.16663 17.1087 4.16663 16.6667V5.00001H15.8333Z"
+                  d="M6.66667 5V3.33333C6.66667 2.8913 6.84226 2.46738 7.15482 2.15482C7.46738 1.84226 7.89131 1.66667 8.33333 1.66667H11.6667C12.1087 1.66667 12.5326 1.84226 12.8452 2.15482C13.1577 2.46738 13.3333 2.8913 13.3333 3.33333V5M15.8333 5V16.6667C15.8333 17.1087 15.6577 17.5326 15.3452 17.8452C15.0326 18.1577 14.6087 18.3333 14.1667 18.3333H5.83333C5.39131 18.3333 4.96738 18.1577 4.65482 17.8452C4.34226 17.5326 4.16667 17.1087 4.16667 16.6667V5H15.8333Z"
                   stroke="#B6B6B6"
                   strokeWidth="1.2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
                 <path
-                  d="M8.33337 9.16667V14.1667"
+                  d="M8.33333 9.16667V14.1667"
                   stroke="#B6B6B6"
                   strokeWidth="1.2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
                 <path
-                  d="M11.6666 9.16667V14.1667"
+                  d="M11.6667 9.16667V14.1667"
                   stroke="#B6B6B6"
                   strokeWidth="1.2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
               </svg>
-
-              <span onClick={onClearCart}>Очистить корзину</span>
+              <span onClick={onClearCart}>Clear cart</span>
             </div>
           </div>
           <div className="content__items">
             {addedPizzas.map((obj) => (
               <CartItem
                 key={obj.id}
+                imageUrl={obj.imageUrl}
                 id={obj.id}
                 name={obj.name}
                 type={obj.type}
@@ -133,10 +133,10 @@ function Cart() {
           <div className="cart__bottom">
             <div className="cart__bottom-details">
               <span>
-                Всего пицц: <b>{totalCount} шт.</b>
+                Total pizzas: <b>{totalCount} pcs.</b>
               </span>
               <span>
-                Сумма заказа: <b>{totalPrice} ₽</b>
+                Order total: <b>{totalPrice} ₽</b>
               </span>
             </div>
             <div className="cart__bottom-buttons">
@@ -146,7 +146,8 @@ function Cart() {
                   height="14"
                   viewBox="0 0 8 14"
                   fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     d="M7 13L1 6.93015L6.86175 1"
                     stroke="#D3D3D3"
@@ -156,11 +157,11 @@ function Cart() {
                   />
                 </svg>
                 <Link to="/">
-                  <span>Вернуться назад</span>
+                  <span>Go back</span>
                 </Link>
               </a>
               <Button onClick={onClickOrder} className="pay-btn">
-                <span>Оплатить сейчас</span>
+                <span>Pay now</span>
               </Button>
             </div>
           </div>
@@ -168,16 +169,16 @@ function Cart() {
       ) : (
         <div className="cart cart--empty">
           <h2>
-            Корзина пустая <i>😕</i>
+            Cart is empty <span>😕</span>
           </h2>
           <p>
-            Вероятней всего, вы не заказывали ещё пиццу.
+            Most likely, you haven't ordered a pizza yet.
             <br />
-            Для того, чтобы заказать пиццу, перейди на главную страницу.
+            To order a pizza, go back to the homepage.
           </p>
           <img src={cartEmptyImage} alt="Empty cart" />
           <Link to="/" className="button button--black">
-            <span>Вернуться назад</span>
+            <span>Go back</span>
           </Link>
         </div>
       )}
